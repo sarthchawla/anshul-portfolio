@@ -8,6 +8,24 @@ import { WhatsAppIcon, InstagramIcon } from "./icons";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSemNS_LMguC2eE4_2zZ_CvYUaLEph-ADIFa359iu9VdOsLbMg/formResponse",
+        { method: "POST", body: formData, mode: "no-cors" }
+      );
+      setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 md:py-32 px-6 md:px-8">
@@ -57,38 +75,32 @@ export default function ContactSection() {
               </div>
             ) : (
               <form
-                // TODO: Replace FORM_ID with actual Google Form ID
-                action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-                method="POST"
-                target="hidden_iframe"
-                onSubmit={() => setSubmitted(true)}
+                onSubmit={handleSubmit}
                 className="space-y-5 rounded-xl border border-white/5 bg-surface-card p-6 md:p-8"
               >
                 <div>
                   <label htmlFor="contact-name" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Name *</label>
-                  {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Name */}
-                  <input id="contact-name" name="entry.123456781" type="text" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="Your name" />
+                  <input id="contact-name" name="entry.1772695559" type="text" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="Your name" />
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Email *</label>
-                  {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Email */}
-                  <input id="contact-email" name="entry.123456782" type="email" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="your@email.com" />
+                  <input id="contact-email" name="entry.338979488" type="email" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="your@email.com" />
+                </div>
+                <div>
+                  <label htmlFor="contact-phone" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Phone Number</label>
+                  <input id="contact-phone" name="entry.1821100900" type="tel" className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="+65 XXXX-XXXX" />
                 </div>
                 <div>
                   <label htmlFor="contact-subject" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Subject</label>
-                  {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Subject */}
-                  <input id="contact-subject" name="entry.123456783" type="text" className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="What's this about?" />
+                  <input id="contact-subject" name="entry.2010347195" type="text" className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="What's this about?" />
                 </div>
                 <div>
                   <label htmlFor="contact-message" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Message *</label>
-                  {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Message */}
-                  <textarea id="contact-message" name="entry.123456784" required rows={5} className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20 resize-none" placeholder="Your message..." />
+                  <textarea id="contact-message" name="entry.1090727424" required rows={5} className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20 resize-none" placeholder="Your message..." />
                 </div>
-                <button type="submit" className="w-full rounded-lg bg-accent-500 px-6 py-3 font-sans text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-accent-400 cursor-pointer">
-                  Send Message
+                <button type="submit" disabled={submitting} className="w-full rounded-lg bg-accent-500 px-6 py-3 font-sans text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-accent-400 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                  {submitting ? "Sending..." : "Send Message"}
                 </button>
-                {/* Hidden iframe for Google Form submission without redirect */}
-                <iframe name="hidden_iframe" style={{display:"none"}} />
               </form>
             )}
           </motion.div>
