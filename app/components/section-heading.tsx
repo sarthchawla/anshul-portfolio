@@ -26,7 +26,7 @@ export default function SectionHeading({
       </motion.h2>
 
       <motion.div
-        className="mx-auto mt-4 h-px w-16 bg-gold-500"
+        className="mx-auto mt-4 h-px w-16 bg-accent-400"
         initial={{ opacity: 0, scaleX: 0 }}
         whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true, margin: "-50px" }}

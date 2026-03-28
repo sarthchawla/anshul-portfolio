@@ -19,7 +19,7 @@ export default function ScrollIndicator() {
           ease: "easeInOut",
         }}
       >
-        <ChevronDown className="h-6 w-6 text-gold-500 opacity-60" />
+        <ChevronDown className="h-6 w-6 text-accent-400 opacity-60" />
       </motion.div>
     </motion.div>
   );

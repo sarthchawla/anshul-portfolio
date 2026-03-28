@@ -23,7 +23,7 @@ export default function LightboxWrapper({
       index={index}
       slides={slides}
       styles={{
-        container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
+        container: { backgroundColor: "rgba(10, 11, 16, 0.97)" },
       }}
       carousel={{ finite: false }}
       animation={{ fade: 250 }}

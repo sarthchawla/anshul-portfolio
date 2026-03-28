@@ -63,7 +63,7 @@ export default function Particles({ className }: ParticlesProps) {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
+        ctx.fillStyle = `rgba(56, 189, 248, ${p.opacity})`;
         ctx.fill();
       }
 

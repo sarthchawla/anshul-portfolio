@@ -33,14 +33,14 @@ export default function IntroVideo() {
             className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24"
             style={{
               background:
-                "linear-gradient(to right, rgb(0, 0, 0), transparent)",
+                "linear-gradient(to right, rgb(10, 11, 16), transparent)",
             }}
           />
           <div
             className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24"
             style={{
               background:
-                "linear-gradient(to left, rgb(0, 0, 0), transparent)",
+                "linear-gradient(to left, rgb(10, 11, 16), transparent)",
             }}
           />
         </motion.div>

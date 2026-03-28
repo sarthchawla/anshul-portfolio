@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { BeamsBackground } from "./ui/beams-background";
 import { photoShootCategories } from "@/data/photo-shoots";
 import { gdriveImage } from "@/lib/google-drive";
 import { shuffle } from "@/lib/shuffle";
@@ -103,19 +104,12 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative flex min-h-dvh items-center justify-center overflow-hidden bg-surface-base"
+      className="relative flex min-h-dvh items-center justify-center overflow-hidden"
     >
-      {/* --- Radial spotlight background (z-0) --- */}
-      {/* Primary gold glow -- animated pulse */}
-      <motion.div
-        animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.2, 0.15] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.15)_0%,transparent_70%)]"
-      />
-      {/* Secondary glow -- slightly offset for depth */}
-      <div className="absolute inset-0 z-0 translate-y-[5%] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,transparent_50%)]" />
-      {/* Subtle ambient warmth at the top */}
-      <div className="absolute inset-x-0 top-0 z-0 h-1/3 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.04)_0%,transparent_80%)]" />
+      {/* --- Beams background layer (z-0) --- */}
+      <div className="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
+        <BeamsBackground className="!min-h-0 h-full" intensity="medium" />
+      </div>
 
       {/* --- Content --- */}
       <motion.div
@@ -152,7 +146,7 @@ export default function Hero() {
           >
             <a
               href="mailto:anshulchugh.work@gmail.com"
-              className="transition-colors hover:text-gold-500"
+              className="transition-colors hover:text-accent-400"
             >
               anshulchugh.work@gmail.com
             </a>
@@ -160,7 +154,7 @@ export default function Hero() {
               href="https://wa.me/6581711361"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-gold-500"
+              className="inline-flex items-center gap-2 transition-colors hover:text-accent-400"
             >
               <WhatsAppIcon size={16} />
               +65 8171-1361
@@ -169,7 +163,7 @@ export default function Hero() {
               href="https://www.instagram.com/an.shul_"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-gold-500"
+              className="inline-flex items-center gap-2 transition-colors hover:text-accent-400"
             >
               <InstagramIcon size={16} />
               @an.shul_

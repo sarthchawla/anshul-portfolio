@@ -28,16 +28,16 @@ export default function ContactSection() {
             </p>
 
             <div className="space-y-4">
-              <a href="mailto:anshulchugh.work@gmail.com" className="flex items-center gap-3 text-zinc-400 hover:text-gold-500 transition-colors group">
-                <Mail size={20} className="text-gold-500/70 group-hover:text-gold-500" />
+              <a href="mailto:anshulchugh.work@gmail.com" className="flex items-center gap-3 text-zinc-400 hover:text-accent-400 transition-colors group">
+                <Mail size={20} className="text-accent-400/70 group-hover:text-accent-400" />
                 <span className="font-sans text-sm">anshulchugh.work@gmail.com</span>
               </a>
-              <a href="https://wa.me/6581711361" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-gold-500 transition-colors group">
-                <WhatsAppIcon size={20} className="text-gold-500/70 group-hover:text-gold-500" />
+              <a href="https://wa.me/6581711361" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-accent-400 transition-colors group">
+                <WhatsAppIcon size={20} className="text-accent-400/70 group-hover:text-accent-400" />
                 <span className="font-sans text-sm">+65 8171-1361</span>
               </a>
-              <a href="https://www.instagram.com/an.shul_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-gold-500 transition-colors group">
-                <InstagramIcon size={20} className="text-gold-500/70 group-hover:text-gold-500" />
+              <a href="https://www.instagram.com/an.shul_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-accent-400 transition-colors group">
+                <InstagramIcon size={20} className="text-accent-400/70 group-hover:text-accent-400" />
                 <span className="font-sans text-sm">@an.shul_</span>
               </a>
             </div>
@@ -51,8 +51,8 @@ export default function ContactSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
             {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full min-h-[300px] rounded-xl border border-gold-500/20 bg-surface-card p-8 text-center">
-                <p className="font-serif text-2xl text-gold-500 mb-2">Thank You!</p>
+              <div className="flex flex-col items-center justify-center h-full min-h-[300px] rounded-xl border border-accent-400/20 bg-surface-card p-8 text-center">
+                <p className="font-serif text-2xl text-accent-400 mb-2">Thank You!</p>
                 <p className="font-sans text-zinc-400 text-sm">Your message has been sent. I'll get back to you soon.</p>
               </div>
             ) : (
@@ -67,24 +67,24 @@ export default function ContactSection() {
                 <div>
                   <label htmlFor="contact-name" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Name *</label>
                   {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Name */}
-                  <input id="contact-name" name="entry.123456781" type="text" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/20" placeholder="Your name" />
+                  <input id="contact-name" name="entry.123456781" type="text" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="Your name" />
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Email *</label>
                   {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Email */}
-                  <input id="contact-email" name="entry.123456782" type="email" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/20" placeholder="your@email.com" />
+                  <input id="contact-email" name="entry.123456782" type="email" required className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="your@email.com" />
                 </div>
                 <div>
                   <label htmlFor="contact-subject" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Subject</label>
                   {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Subject */}
-                  <input id="contact-subject" name="entry.123456783" type="text" className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/20" placeholder="What's this about?" />
+                  <input id="contact-subject" name="entry.123456783" type="text" className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20" placeholder="What's this about?" />
                 </div>
                 <div>
                   <label htmlFor="contact-message" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Message *</label>
                   {/* TODO: Replace entry.XXXXXX with actual Google Form entry ID for Message */}
-                  <textarea id="contact-message" name="entry.123456784" required rows={5} className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/20 resize-none" placeholder="Your message..." />
+                  <textarea id="contact-message" name="entry.123456784" required rows={5} className="w-full rounded-lg border border-white/10 bg-zinc-900/50 px-4 py-3 font-sans text-sm text-white placeholder-zinc-600 outline-none transition-colors focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20 resize-none" placeholder="Your message..." />
                 </div>
-                <button type="submit" className="w-full rounded-lg bg-gold-600 px-6 py-3 font-sans text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-gold-500 cursor-pointer">
+                <button type="submit" className="w-full rounded-lg bg-accent-500 px-6 py-3 font-sans text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-accent-400 cursor-pointer">
                   Send Message
                 </button>
                 {/* Hidden iframe for Google Form submission without redirect */}

@@ -83,7 +83,7 @@ export default function ExperienceProject({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay }}
-      className="bg-surface-card border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/20 transition-colors duration-300"
+      className="bg-surface-card border border-white/5 rounded-xl overflow-hidden hover:border-accent-400/20 transition-colors duration-300"
     >
       {/* Collapsed header - always visible */}
       <button
@@ -237,7 +237,7 @@ export default function ExperienceProject({
                         <div>
                           <button
                             onClick={() => setShowFullVideo((prev) => !prev)}
-                            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-gold-400 transition-colors cursor-pointer"
+                            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-accent-300 transition-colors cursor-pointer"
                           >
                             <span>
                               {showFullVideo ? "Hide Full Video" : "Show Full Video"}

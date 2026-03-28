@@ -31,18 +31,18 @@ export default function PhotoShoots() {
               <span
                 className={
                   activeSlug === category.slug
-                    ? "text-gold-500"
+                    ? "text-accent-400"
                     : "text-zinc-500 hover:text-zinc-300"
                 }
               >
                 {category.name}
               </span>
 
-              {/* Active tab gold underline indicator with sliding animation */}
+              {/* Active tab accent underline indicator with sliding animation */}
               {activeSlug === category.slug && (
                 <motion.div
                   layoutId="tab-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold-500"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-400"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}

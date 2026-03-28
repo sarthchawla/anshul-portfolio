@@ -81,7 +81,7 @@ export default function Nav() {
         {/* ---- Brand ---- */}
         <a
           href="#hero"
-          className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-gold-500"
+          className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
         >
           Anshul Chugh
         </a>
@@ -92,8 +92,8 @@ export default function Nav() {
             <li key={href}>
               <a
                 href={href}
-                className={`font-sans text-sm uppercase tracking-wider transition-colors hover:text-gold-500 ${
-                  activeSection === href ? "text-gold-500" : "text-zinc-400"
+                className={`font-sans text-sm uppercase tracking-wider transition-colors hover:text-accent-400 ${
+                  activeSection === href ? "text-accent-400" : "text-zinc-400"
                 }`}
               >
                 {label}
@@ -147,8 +147,8 @@ export default function Nav() {
                   <a
                     href={href}
                     onClick={closeMobile}
-                    className={`font-sans text-lg uppercase tracking-wider transition-colors hover:text-gold-500 ${
-                      activeSection === href ? "text-gold-500" : "text-zinc-300"
+                    className={`font-sans text-lg uppercase tracking-wider transition-colors hover:text-accent-400 ${
+                      activeSection === href ? "text-accent-400" : "text-zinc-300"
                     }`}
                   >
                     {label}

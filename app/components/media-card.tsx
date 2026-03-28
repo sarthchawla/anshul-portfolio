@@ -46,8 +46,8 @@ export default function MediaCard({
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-      {/* Gold bottom border on hover */}
-      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gold-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      {/* Accent bottom border on hover */}
+      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-accent-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </motion.div>
   );
 }

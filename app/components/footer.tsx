@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-1 text-sm text-zinc-500">
           <a
             href="mailto:anshulchugh.work@gmail.com"
-            className="transition-colors hover:text-gold-500"
+            className="transition-colors hover:text-accent-400"
           >
             anshulchugh.work@gmail.com
           </a>
@@ -34,7 +34,7 @@ export default function Footer() {
             href="https://wa.me/6581711361"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 transition-colors hover:text-gold-500"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent-400"
           >
             <WhatsAppIcon size={14} />
             +65 8171-1361
@@ -43,7 +43,7 @@ export default function Footer() {
             href="https://www.instagram.com/an.shul_"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 transition-colors hover:text-gold-500"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent-400"
           >
             <InstagramIcon size={14} />
             @an.shul_

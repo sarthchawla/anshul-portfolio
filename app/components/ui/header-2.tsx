@@ -79,7 +79,7 @@ export function Header() {
             >
                 <a
                     href="#hero"
-                    className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-gold-500"
+                    className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
                 >
                     Anshul Chugh
                 </a>
@@ -91,7 +91,7 @@ export function Header() {
                                 buttonVariants({ variant: 'ghost', size: 'sm' }),
                                 'font-sans text-xs uppercase tracking-wider',
                                 activeSection === link.href
-                                    ? 'text-gold-500'
+                                    ? 'text-accent-400'
                                     : 'text-zinc-400',
                             )}
                             href={link.href}
@@ -128,7 +128,7 @@ export function Header() {
                                             'justify-start font-sans text-base uppercase tracking-wider',
                                     }),
                                     activeSection === link.href
-                                        ? 'text-gold-500'
+                                        ? 'text-accent-400'
                                         : 'text-zinc-300',
                                 )}
                                 href={link.href}

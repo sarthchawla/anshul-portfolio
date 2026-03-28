@@ -13,12 +13,12 @@ body {
 
 /* Selection */
 ::selection {
-  @apply bg-gold/30 text-gold-50;
+  @apply bg-accent/30 text-accent-50;
 }
 
 /* Focus ring */
 *:focus-visible {
-  @apply outline-none ring-2 ring-gold/60 ring-offset-2 ring-offset-surface-base;
+  @apply outline-none ring-2 ring-accent/60 ring-offset-2 ring-offset-surface-base;
 }
 
 /* ── Custom scrollbar ───────────────────────────────────── */
@@ -46,14 +46,14 @@ body {
 
 /* ── Utility classes ────────────────────────────────────── */
 @layer utilities {
-  /* Gold gradient text */
+  /* Accent gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
       135deg,
-      theme("colors.gold.400"),
-      theme("colors.gold.DEFAULT"),
-      theme("colors.gold.300")
+      theme("colors.accent.300"),
+      theme("colors.accent.DEFAULT"),
+      theme("colors.accent.200")
     );
   }
 
@@ -62,13 +62,13 @@ body {
     @apply bg-surface-base/60 backdrop-blur-md border border-white/10;
   }
 
-  /* Hover lift with gold shadow */
+  /* Hover lift with accent shadow */
   .hover-lift {
     @apply transition-all duration-300 ease-out;
   }
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px theme("colors.gold.glow");
+    box-shadow: 0 8px 30px theme("colors.accent.glow");
   }
 
   /* Dark gradient overlay on images */
@@ -80,8 +80,8 @@ body {
     @apply absolute inset-0;
     background: linear-gradient(
       to top,
-      rgba(15, 17, 23, 0.9) 0%,
-      rgba(15, 17, 23, 0.3) 50%,
+      rgba(10, 11, 16, 0.9) 0%,
+      rgba(10, 11, 16, 0.3) 50%,
       transparent 100%
     );
   }

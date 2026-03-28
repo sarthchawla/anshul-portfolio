@@ -31,7 +31,7 @@ export default function VideoEmbed({
 
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border border-gold-500/20"
+      className="overflow-hidden rounded-xl border border-accent-400/20"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
