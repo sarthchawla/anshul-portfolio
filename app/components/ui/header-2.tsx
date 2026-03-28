@@ -4,6 +4,7 @@ import { Button, buttonVariants } from './button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from './menu-toggle-icon';
 import { useScroll } from './use-scroll';
+import { Z } from '@/lib/z-index';
 
 const NAV_LINKS = [
   { label: "Profiles", href: "#profiles" },
@@ -61,7 +62,7 @@ export function Header() {
     return (
         <header
             className={cn(
-                'sticky top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out',
+                `sticky top-0 z-[${Z.NAVBAR}] mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out`,
                 {
                     'bg-surface-base/95 supports-[backdrop-filter]:bg-surface-base/50 border-white/10 backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow-lg':
                         scrolled && !open,
@@ -112,7 +113,7 @@ export function Header() {
 
             <div
                 className={cn(
-                    'bg-surface-base/95 backdrop-blur-xl fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y border-white/10 md:hidden',
+                    `bg-surface-base/95 backdrop-blur-xl fixed top-14 right-0 bottom-0 left-0 z-[${Z.NAVBAR_MOBILE_MENU}] flex flex-col overflow-hidden border-y border-white/10 md:hidden`,
                     open ? 'block' : 'hidden',
                 )}
             >

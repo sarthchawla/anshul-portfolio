@@ -10,16 +10,17 @@ import ContactSection from "./components/contact-section";
 import Footer from "./components/footer";
 import { BeamsBackground } from "./components/ui/beams-background";
 import { Agentation } from "agentation";
+import { Z } from "@/lib/z-index";
 
 export default function Home() {
   return (
     <div className="bg-surface-base min-h-screen">
       {/* Fixed beams background layer */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden" style={{ zIndex: Z.BACKGROUND }}>
         <BeamsBackground intensity="subtle" />
       </div>
       {/* Scrollable content */}
-      <div className="relative z-10">
+      <div className="relative" style={{ zIndex: Z.PAGE_CONTENT }}>
         <Header />
         <Hero />
         <ProfilesGallery />

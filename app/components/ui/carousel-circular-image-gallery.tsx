@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback, useId } from "react"
+import { Z } from "@/lib/z-index"
 
 export interface CarouselImageData {
   title: string
@@ -137,7 +138,7 @@ export function ImageGallery({ images, onSlideChange }: ImageGalleryProps) {
               />
             </div>
           ))}
-        <div className="absolute left-0 top-0 z-[100] h-full w-full pointer-events-none">
+        <div className="absolute left-0 top-0 h-full w-full pointer-events-none" style={{ zIndex: Z.CAROUSEL_OVERLAY }}>
           <Tabs uid={uid} images={images} onSelect={onClick} />
         </div>
       </div>

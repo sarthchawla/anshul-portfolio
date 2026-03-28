@@ -15,6 +15,7 @@ import { gdriveImage } from "@/lib/google-drive";
 import { shuffle } from "@/lib/shuffle";
 import ScrollIndicator from "./scroll-indicator";
 import { WhatsAppIcon, InstagramIcon } from "./icons";
+import { Z } from "@/lib/z-index";
 
 /* ------------------------------------------------------------------ */
 /*  Marquee images                                                     */
@@ -106,15 +107,15 @@ export default function Hero() {
       id="hero"
       className="relative flex min-h-dvh items-center justify-center overflow-hidden"
     >
-      {/* --- Beams background layer (z-0) --- */}
-      <div className="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
+      {/* --- Beams background layer --- */}
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]" style={{ zIndex: Z.BACKGROUND }}>
         <BeamsBackground className="!min-h-0 h-full" intensity="medium" />
       </div>
 
       {/* --- Content --- */}
       <motion.div
-        className="relative z-10 px-6 text-center"
-        style={{ opacity: heroOpacity, y: heroY }}
+        className="relative px-6 text-center"
+        style={{ zIndex: Z.PAGE_CONTENT, opacity: heroOpacity, y: heroY }}
       >
         <motion.div
           variants={containerVariants}
@@ -181,7 +182,7 @@ export default function Hero() {
       {duplicatedImages.length > 0 && (
         <div
           className={cn(
-            "absolute bottom-0 left-0 z-[5] h-1/3 w-full md:h-2/5",
+            `absolute bottom-0 left-0 z-[${Z.HERO_FADE}] h-1/3 w-full md:h-2/5`,
             "[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
           )}
         >

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Z } from "@/lib/z-index";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -71,7 +72,8 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-50 w-full transition-colors duration-300 ${
+      style={{ zIndex: Z.NAVBAR }}
+      className={`fixed left-0 top-0 w-full transition-colors duration-300 ${
         scrolled
           ? "border-b border-white/10 bg-surface-base/80 backdrop-blur-lg"
           : "bg-transparent"
@@ -122,7 +124,8 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-y-auto bg-surface-base/95 backdrop-blur-xl"
+            style={{ zIndex: Z.NAVBAR_MOBILE_MENU }}
+            className="fixed inset-0 flex flex-col items-center justify-center overflow-y-auto bg-surface-base/95 backdrop-blur-xl"
           >
             {/* Close button */}
             <button

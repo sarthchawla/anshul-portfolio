@@ -6,3 +6,6 @@ export const gdriveThumbnail = (id: string, w = 400): string =>
 
 export const gdriveVideoEmbed = (id: string): string =>
   `https://drive.google.com/file/d/${id}/preview`;
+
+export const gdriveThumbnailById = (id: string): string =>
+  `https://drive.google.com/thumbnail?id=${id}&sz=w800`;
