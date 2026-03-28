@@ -9,7 +9,7 @@ import { WhatsAppIcon, InstagramIcon } from "./icons";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-zinc-950">
+    <footer className="border-t border-white/5 bg-surface-card">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

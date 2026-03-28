@@ -12,7 +12,7 @@ import { Agentation } from "agentation";
 
 export default function Home() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-surface-base min-h-screen">
       <Nav />
       <Hero />
       <ProfilesGallery />

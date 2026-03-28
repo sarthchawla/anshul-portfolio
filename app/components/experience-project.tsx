@@ -81,7 +81,7 @@ export default function ExperienceProject({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay }}
-      className="bg-zinc-950 border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/20 transition-colors duration-300"
+      className="bg-surface-card border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/20 transition-colors duration-300"
     >
       {/* Collapsed header - always visible */}
       <button

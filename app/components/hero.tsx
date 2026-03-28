@@ -103,7 +103,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative flex min-h-dvh items-center justify-center overflow-hidden bg-black"
+      className="relative flex min-h-dvh items-center justify-center overflow-hidden bg-surface-base"
     >
       {/* --- Radial spotlight background (z-0) --- */}
       {/* Primary gold glow -- animated pulse */}

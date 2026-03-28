@@ -12,6 +12,11 @@ module.exports = {
         sans: ["Montserrat", "sans-serif"],
       },
       colors: {
+        surface: {
+          base: "#0F1117",
+          card: "#181B25",
+          elevated: "#1E2130",
+        },
         gold: {
           50: "#FAF8F0",
           100: "#F5F0DF",

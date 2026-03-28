@@ -73,7 +73,7 @@ export default function Nav() {
     <nav
       className={`fixed left-0 top-0 z-50 w-full transition-colors duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-black/80 backdrop-blur-lg"
+          ? "border-b border-white/10 bg-surface-base/80 backdrop-blur-lg"
           : "bg-transparent"
       }`}
     >
@@ -122,7 +122,7 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-surface-base/95 backdrop-blur-xl"
           >
             {/* Close button */}
             <button

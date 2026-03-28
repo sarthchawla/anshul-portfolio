@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${montserrat.variable} font-sans`}
       >
-        <div className="bg-black min-h-screen">{children}</div>
+        <div className="bg-surface-base min-h-screen">{children}</div>
       </body>
     </html>
   );

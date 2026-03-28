@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  @apply bg-black text-zinc-100 font-sans antialiased;
+  @apply bg-surface-base text-zinc-100 font-sans antialiased;
 }
 
 /* Selection */
@@ -18,7 +18,7 @@ body {
 
 /* Focus ring */
 *:focus-visible {
-  @apply outline-none ring-2 ring-gold/60 ring-offset-2 ring-offset-black;
+  @apply outline-none ring-2 ring-gold/60 ring-offset-2 ring-offset-surface-base;
 }
 
 /* ── Custom scrollbar ───────────────────────────────────── */
@@ -59,7 +59,7 @@ body {
 
   /* Glassmorphism panel */
   .glass {
-    @apply bg-black/60 backdrop-blur-md border border-white/10;
+    @apply bg-surface-base/60 backdrop-blur-md border border-white/10;
   }
 
   /* Hover lift with gold shadow */
@@ -80,8 +80,8 @@ body {
     @apply absolute inset-0;
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
+      rgba(15, 17, 23, 0.9) 0%,
+      rgba(15, 17, 23, 0.3) 50%,
       transparent 100%
     );
   }

@@ -51,7 +51,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
             {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full min-h-[300px] rounded-xl border border-gold-500/20 bg-zinc-950 p-8 text-center">
+              <div className="flex flex-col items-center justify-center h-full min-h-[300px] rounded-xl border border-gold-500/20 bg-surface-card p-8 text-center">
                 <p className="font-serif text-2xl text-gold-500 mb-2">Thank You!</p>
                 <p className="font-sans text-zinc-400 text-sm">Your message has been sent. I'll get back to you soon.</p>
               </div>
@@ -62,7 +62,7 @@ export default function ContactSection() {
                 method="POST"
                 target="hidden_iframe"
                 onSubmit={() => setSubmitted(true)}
-                className="space-y-5 rounded-xl border border-white/5 bg-zinc-950 p-6 md:p-8"
+                className="space-y-5 rounded-xl border border-white/5 bg-surface-card p-6 md:p-8"
               >
                 <div>
                   <label htmlFor="contact-name" className="block font-sans text-xs uppercase tracking-wider text-zinc-500 mb-2">Name *</label>
