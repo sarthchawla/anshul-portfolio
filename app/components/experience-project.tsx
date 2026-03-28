@@ -107,7 +107,7 @@ export default function ExperienceProject({
 
         {/* Project name and meta */}
         <div className="flex-1 min-w-0">
-          <h4 className="font-sans text-xl font-semibold text-white truncate" title={project.name}>
+          <h4 className="font-sans text-lg md:text-xl font-semibold text-white leading-tight" title={project.name}>
             {project.name}
           </h4>
           <p className="font-sans text-sm text-zinc-500 mt-1">

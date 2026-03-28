@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "./components/hero";
-import Nav from "./components/nav";
+import { Header } from "./components/ui/header-2";
 import ProfilesGallery from "./components/profiles-gallery";
 import IntroVideo from "./components/intro-video";
 import ExperienceSection from "./components/experience-section";
@@ -13,7 +13,7 @@ import { Agentation } from "agentation";
 export default function Home() {
   return (
     <div className="bg-surface-base min-h-screen">
-      <Nav />
+      <Header />
       <Hero />
       <ProfilesGallery />
       <IntroVideo />
