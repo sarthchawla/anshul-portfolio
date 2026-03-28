@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { photoShootCategories } from "@/data/photo-shoots";
 import { gdriveImage } from "@/lib/google-drive";
+import { shuffle } from "@/lib/shuffle";
 import ScrollIndicator from "./scroll-indicator";
 import { WhatsAppIcon, InstagramIcon } from "./icons";
 
@@ -92,11 +93,11 @@ export default function Hero() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.8], [0, 120]);
 
-  /* Duplicate images for seamless infinite scroll */
-  const duplicatedImages = useMemo(
-    () => [...marqueeImages, ...marqueeImages],
-    []
-  );
+  /* Shuffle and duplicate images for seamless infinite scroll */
+  const duplicatedImages = useMemo(() => {
+    const shuffled = shuffle(marqueeImages);
+    return [...shuffled, ...shuffled];
+  }, []);
 
   return (
     <section
@@ -127,17 +128,6 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-6"
         >
-          {/* Tagline pill */}
-          <motion.span
-            variants={fadeUpVariants}
-            className={cn(
-              "inline-block rounded-full border px-4 py-1.5 font-sans text-xs uppercase tracking-wider",
-              "border-gold-500/30 bg-gold-500/10 text-gold-400"
-            )}
-          >
-            Actress &amp; Model &mdash; Singapore
-          </motion.span>
-
           {/* Name */}
           <motion.h1
             variants={titleVariants}
@@ -147,30 +137,18 @@ export default function Hero() {
             Anshul Chugh
           </motion.h1>
 
-          {/* Description */}
+          {/* Subtitle */}
           <motion.p
             variants={fadeUpVariants}
-            className="max-w-xl font-serif text-lg italic text-zinc-400 md:text-xl"
+            className="-mt-4 font-serif text-xl italic text-zinc-400 md:text-2xl"
           >
-            Bringing stories to life through film, television, and fashion
+            Actress &nbsp;&amp;&nbsp; Model
           </motion.p>
-
-          {/* CTA button */}
-          <motion.a
-            variants={fadeUpVariants}
-            href="#profiles"
-            className={cn(
-              "mt-2 inline-block rounded-full px-8 py-3 font-sans text-sm font-semibold uppercase tracking-wider transition-colors",
-              "bg-gold-600 text-black hover:bg-gold-500"
-            )}
-          >
-            View Portfolio
-          </motion.a>
 
           {/* Contact links */}
           <motion.div
             variants={fadeUpVariants}
-            className="mt-2 flex flex-col items-center gap-2 font-sans text-sm text-zinc-500"
+            className="mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-sans text-sm text-zinc-500"
           >
             <a
               href="mailto:anshulchugh.work@gmail.com"
