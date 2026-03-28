@@ -131,7 +131,7 @@ export default function Hero() {
           {/* Name */}
           <motion.h1
             variants={titleVariants}
-            className="font-serif font-semibold uppercase tracking-widest text-white"
+            className="font-serif font-semibold uppercase tracking-widest text-white md:whitespace-nowrap"
             style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
           >
             Anshul Chugh

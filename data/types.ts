@@ -8,6 +8,7 @@ export interface MediaItem {
 export interface Project {
   name: string;
   slug: string;
+  thumbnail?: string;
   media: MediaItem[];
 }
 

@@ -122,7 +122,7 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-surface-base/95 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-y-auto bg-surface-base/95 backdrop-blur-xl"
           >
             {/* Close button */}
             <button

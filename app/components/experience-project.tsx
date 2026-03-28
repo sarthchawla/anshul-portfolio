@@ -49,12 +49,14 @@ export default function ExperienceProject({
   const videos = project.media.filter((m) => m.type === "video");
   const firstImage = images[0];
 
-  // For thumbnail: use first image if available, otherwise fall back to first video thumbnail
-  const thumbnailSrc = firstImage
-    ? getThumbnailUrl(firstImage.id, 0)
-    : videos.length > 0
-      ? gdriveThumbnail(videos[0].id, 400)
-      : null;
+  // For thumbnail: use custom thumbnail if provided, then first image, then first video thumbnail
+  const thumbnailSrc = project.thumbnail
+    ? project.thumbnail
+    : firstImage
+      ? getThumbnailUrl(firstImage.id, 0)
+      : videos.length > 0
+        ? gdriveThumbnail(videos[0].id, 400)
+        : null;
   const thumbnailAlt = firstImage
     ? firstImage.alt
     : videos.length > 0
@@ -105,7 +107,7 @@ export default function ExperienceProject({
 
         {/* Project name and meta */}
         <div className="flex-1 min-w-0">
-          <h4 className="font-sans text-xl font-semibold text-white truncate">
+          <h4 className="font-sans text-xl font-semibold text-white truncate" title={project.name}>
             {project.name}
           </h4>
           <p className="font-sans text-sm text-zinc-500 mt-1">

@@ -88,14 +88,10 @@ export const experiences: YearExperience[] = [
         ],
       },
       {
-        name: "URA: Honouring the Past, Forging the Future",
+        name: "Urban Redevelopment Authority: Honouring the past, forging the future | Draft Master Plan 2025",
         slug: "ura-honouring-past",
+        thumbnail: "/images/ura-thumb.png",
         media: [
-          {
-            id: "placeholder-ura-thumb",
-            type: "image",
-            alt: "URA Honouring the Past - Thumbnail",
-          },
           {
             id: "1kLu6Z0ymt2LoyCF68wQQppBfcxEaxvmL",
             type: "video",
