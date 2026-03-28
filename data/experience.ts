@@ -11,10 +11,81 @@ export const experiencePlaceholderImages: string[] = [
 ];
 
 /**
- * Past acting experience organized by year (descending).
+ * Past acting experience organized by year (ascending for chronological display).
  * Real Google Drive file IDs are used where available.
+ * "Full Video" items are excluded — only "Anshul Section" cuts are shown.
  */
 export const experiences: YearExperience[] = [
+  {
+    year: 2017,
+    projects: [
+      {
+        name: "Giordano G-Motion",
+        slug: "giordano-g-motion",
+        media: [
+          {
+            id: "1qfyWYKqZeEBCTNMyVER64tGorODUNBqA",
+            type: "video",
+            alt: "Giordano Anshul Section",
+          },
+        ],
+      },
+      {
+        name: "PAP: Season's Greeting from PAP",
+        slug: "pap-seasons-greeting",
+        media: [
+          {
+            id: "1ULNyoJ1NcxRFM8pKcYBAX1D4NZ05s8x0",
+            type: "video",
+            alt: "PAP Season's Greeting - Anshul Section",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 2019,
+    projects: [
+      {
+        name: "Clean and Green Singapore: Say YES to Waste Less MV",
+        slug: "clean-green-singapore",
+        media: [
+          {
+            id: "1zcD9LjbwTg864Vsmx38eZ3_7km18PMjL",
+            type: "video",
+            alt: "Clean and Green Singapore - Anshul Section",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 2024,
+    projects: [
+      {
+        name: "POSB Print & Video Shoot",
+        slug: "posb-print-video",
+        media: [
+          {
+            id: "1MgbDWcr5rdm7sMUcgXebZu5ApsX3j_b9",
+            type: "video",
+            alt: "POSB Instagram Ad Video",
+            aspectRatio: "9/16",
+          },
+          {
+            id: "1pKXM8LrU9-9g7tlZRlPRDEzkyaIST_6w",
+            type: "image",
+            alt: "POSB Website Ad Banner",
+          },
+          {
+            id: "10KFAXNyg0crSoM9ZVJLUA78UtLRQblfn",
+            type: "image",
+            alt: "POSB Website Ad",
+          },
+        ],
+      },
+    ],
+  },
   {
     year: 2025,
     projects: [
@@ -26,11 +97,6 @@ export const experiences: YearExperience[] = [
             id: "1oxD3GEwtPu1N5OKEaSOhE8avlQN-qKQT",
             type: "video",
             alt: "Celebrating Fathers 2025 - Anshul Section Only",
-          },
-          {
-            id: "1rbXYDSCxu2i-VQSLni95PptBwmjS1Uk9",
-            type: "video",
-            alt: "Celebrating Fathers 2025 - Full Video",
           },
         ],
       },
@@ -96,60 +162,6 @@ export const experiences: YearExperience[] = [
             id: "1kLu6Z0ymt2LoyCF68wQQppBfcxEaxvmL",
             type: "video",
             alt: "URA - Anshul Section Only",
-          },
-          {
-            id: "10VJ9YtPzwlheyZUtXgqRo3JadHuZAA4Z",
-            type: "video",
-            alt: "URA - Full Video",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    year: 2024,
-    projects: [
-      {
-        name: "OnePA Brand Stock Photoshoot",
-        slug: "onepa-brand-stock",
-        media: [
-          // TODO: Replace placeholder image URLs with gdriveImage() when real content is uploaded
-          {
-            id: "placeholder-onepa-1",
-            type: "image",
-            alt: "OnePA Brand Stock Photo 1",
-          },
-          {
-            id: "placeholder-onepa-2",
-            type: "image",
-            alt: "OnePA Brand Stock Photo 2",
-          },
-          {
-            id: "placeholder-onepa-3",
-            type: "image",
-            alt: "OnePA Brand Stock Photo 3",
-          },
-        ],
-      },
-      {
-        name: "POSB Print & Video Shoot",
-        slug: "posb-print-video",
-        media: [
-          {
-            id: "1MgbDWcr5rdm7sMUcgXebZu5ApsX3j_b9",
-            type: "video",
-            alt: "POSB Instagram Ad Video",
-            aspectRatio: "9/16",
-          },
-          {
-            id: "1pKXM8LrU9-9g7tlZRlPRDEzkyaIST_6w",
-            type: "image",
-            alt: "POSB Website Ad Banner",
-          },
-          {
-            id: "10KFAXNyg0crSoM9ZVJLUA78UtLRQblfn",
-            type: "image",
-            alt: "POSB Website Ad",
           },
         ],
       },
