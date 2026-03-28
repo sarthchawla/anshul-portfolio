@@ -1,0 +1,38 @@
+{
+  "name": "anshul-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio website for Anshul Chugh - Actress & Model",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "dependencies": {
+    "agentation": "^3.0.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^1.7.0",
+    "next": "14",
+    "react": "18",
+    "react-dom": "18",
+    "react-masonry-css": "^1.0.16",
+    "tailwind-merge": "^3.5.0",
+    "yet-another-react-lightbox": "^3.30.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^25.5.0",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "postcss-nesting": "^14.0.0",
+    "tailwindcss": "^3.4",
+    "typescript": "^6.0.2"
+  }
+}
