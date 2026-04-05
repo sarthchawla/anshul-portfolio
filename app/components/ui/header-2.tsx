@@ -61,8 +61,9 @@ export function Header() {
 
     return (
         <header
+            style={{ zIndex: Z.NAVBAR }}
             className={cn(
-                `sticky top-0 z-[${Z.NAVBAR}] mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out`,
+                `sticky top-0 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out`,
                 {
                     'bg-surface-base/95 supports-[backdrop-filter]:bg-surface-base/50 border-white/10 backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow-lg':
                         scrolled && !open,
@@ -80,9 +81,10 @@ export function Header() {
             >
                 <a
                     href="#hero"
-                    className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
+                    className="flex items-center gap-2 font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
                 >
-                    Anshul Chugh
+                    <img src="/logo.png" alt="" className="h-5 w-5 invert" />
+                    ANSHUL
                 </a>
                 <div className="hidden items-center gap-1 md:flex">
                     {NAV_LINKS.map((link) => (
@@ -112,8 +114,9 @@ export function Header() {
             </nav>
 
             <div
+                style={{ zIndex: Z.NAVBAR_MOBILE_MENU }}
                 className={cn(
-                    `bg-surface-base/95 backdrop-blur-xl fixed top-14 right-0 bottom-0 left-0 z-[${Z.NAVBAR_MOBILE_MENU}] flex flex-col overflow-hidden border-y border-white/10 md:hidden`,
+                    `bg-surface-base/95 backdrop-blur-xl fixed top-14 right-0 bottom-0 left-0 flex flex-col overflow-hidden border-y border-white/10 md:hidden`,
                     open ? 'block' : 'hidden',
                 )}
             >

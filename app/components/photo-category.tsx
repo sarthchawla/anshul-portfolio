@@ -54,7 +54,7 @@ export default function PhotoCategory({ category }: PhotoCategoryProps) {
 
   return (
     <>
-      <GalleryGrid columns={{ default: 3, 768: 2, 480: 1 }}>
+      <GalleryGrid columns={{ default: 5, 1024: 4, 768: 3, 480: 2 }}>
         {shuffledPhotos.map((photo, i) => (
           <div key={photo.id} className="mb-4">
             <MediaCard

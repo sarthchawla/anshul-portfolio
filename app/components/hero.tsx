@@ -129,7 +129,7 @@ export default function Hero() {
             className="font-serif font-semibold uppercase tracking-widest text-white md:whitespace-nowrap"
             style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
           >
-            Anshul Chugh
+            ANSHUL
           </motion.h1>
 
           {/* Subtitle */}

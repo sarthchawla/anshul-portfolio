@@ -41,23 +41,12 @@ export default function ProfilesGallery() {
           id="profiles-heading"
         />
 
-        <GalleryGrid columns={{ default: 3, 768: 2, 480: 1 }}>
-          {profilePhotos.map((photo, index) => (
-            <MediaCard
-              key={photo.id}
-              src={imageUrls[index]}
-              alt={photo.alt}
-              onClick={() => setLightbox({ open: true, index })}
-            />
-          ))}
-        </GalleryGrid>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mt-12 mx-auto max-w-2xl"
+          className="mb-10 mx-auto max-w-2xl"
         >
           <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/5 p-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-white/5">
@@ -74,6 +63,17 @@ export default function ProfilesGallery() {
             </div>
           </div>
         </motion.div>
+
+        <GalleryGrid columns={{ default: 3, 768: 2, 480: 1 }}>
+          {profilePhotos.map((photo, index) => (
+            <MediaCard
+              key={photo.id}
+              src={imageUrls[index]}
+              alt={photo.alt}
+              onClick={() => setLightbox({ open: true, index })}
+            />
+          ))}
+        </GalleryGrid>
 
         <LightboxWrapper
           open={lightbox.open}
