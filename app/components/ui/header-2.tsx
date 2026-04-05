@@ -83,7 +83,7 @@ export function Header() {
                     href="#hero"
                     className="flex items-center gap-2 font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
                 >
-                    <img src="/logo.png" alt="" className="h-5 w-5 invert" />
+                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`} alt="" className="h-5 w-5 invert" />
                     ANSHUL
                 </a>
                 <div className="hidden items-center gap-1 md:flex">
