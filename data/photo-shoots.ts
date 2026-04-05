@@ -1,34 +1,24 @@
 import type { PhotoShootCategory } from "./types";
 
-/**
- * Placeholder image URLs for categories with empty Google Drive folders.
- * TODO: Replace placeholder URLs with gdriveImage() when real photos are uploaded.
- */
-export const photoshootPlaceholders: string[] = [
-  "https://images.unsplash.com/photo-1469460340997-2f854421e72f?w=600&auto=format",
-  "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&auto=format",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format",
-  "https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=600&auto=format",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format",
-  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format",
-];
-
 export const photoShootCategories: PhotoShootCategory[] = [
   {
     name: "Photoshoot",
     slug: "photoshoot",
     photos: [
-      // TODO: Replace placeholder IDs with real Google Drive IDs when photos are uploaded
-      { id: "placeholder-ps-1", type: "image", alt: "Photoshoot Photo 1" },
-      { id: "placeholder-ps-2", type: "image", alt: "Photoshoot Photo 2" },
-      { id: "placeholder-ps-3", type: "image", alt: "Photoshoot Photo 3" },
-      { id: "placeholder-ps-4", type: "image", alt: "Photoshoot Photo 4" },
-      { id: "placeholder-ps-5", type: "image", alt: "Photoshoot Photo 5" },
-      { id: "placeholder-ps-6", type: "image", alt: "Photoshoot Photo 6" },
-      { id: "placeholder-ps-7", type: "image", alt: "Photoshoot Photo 7" },
-      { id: "placeholder-ps-8", type: "image", alt: "Photoshoot Photo 8" },
+      { id: "1BhuUT1HHNitxMqWFzDFUBnZXjQrosRBx", type: "image", alt: "Photoshoot - IMG_0367" },
+      { id: "1mu2GgtTJESGGFosYqKazA4Uaglz-37Ak", type: "image", alt: "Photoshoot - IMG_0380" },
+      { id: "1J4F7xq57d6Sy5ybd_OKTk5K1CuSB9DTE", type: "image", alt: "Photoshoot - IMG_2092" },
+      { id: "1LIDIoEZqYWnMeuvKe2vcwvQ4dURl8WDd", type: "image", alt: "Photoshoot - IMG_2095" },
+      { id: "1BfRKLlwOOakxkGc6-FsDCOINXJCtcmGg", type: "image", alt: "Photoshoot - IMG_2096" },
+      { id: "1JiOGr67gspVK3LD97zkwWml-pROlJSmC", type: "image", alt: "Photoshoot - IMG_4033" },
+      { id: "1rCm9hHJjv26dbZtj0QxPEndZy2DUViDz", type: "image", alt: "Photoshoot - IMG_4034" },
+      { id: "1CtFlQc2A2VasowIdkFa_ycKoxNJwAKSr", type: "image", alt: "Photoshoot - IMG_4035" },
+      { id: "1peN8vR4HvwD1QpWKuE9ULb1LarqIa8rS", type: "image", alt: "Photoshoot - IMG_8779" },
+      { id: "1tJ2Izj8Dbv3VhbmWgmfPVky47SUJ7bWt", type: "image", alt: "Photoshoot - IMG_8780" },
+      { id: "1lhmI60lBqfRNxhe2xMmporM7MprbT2eg", type: "image", alt: "Photoshoot - IMG_8782" },
+      { id: "1jpFpBXGsa4v1k_n_2CZLQ0nvHe75bdp0", type: "image", alt: "Photoshoot - IMG_8783" },
+      { id: "1zxcshIk0iHCfUIcQUqmsiVw5LtQbgpRO", type: "image", alt: "Photoshoot - IMG_8785" },
+      { id: "11IbjG86b_lvFCI3RXbIu_X_pXKbCRCx0", type: "image", alt: "Photoshoot - IMG_8790" },
     ],
   },
   {
