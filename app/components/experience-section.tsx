@@ -276,7 +276,7 @@ const mediaItems: MediaItemType[] = [
     title: "URA: Honouring the Past, Forging the Future",
     desc: "2025 — Draft Master Plan",
     url: gdriveVideoEmbed("1kLu6Z0ymt2LoyCF68wQQppBfcxEaxvmL"),
-    thumbnailUrl: "/images/ura-thumb.png",
+    thumbnailUrl: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ura-thumb.png`,
     aspectRatio: "16/9",
     span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
   },
