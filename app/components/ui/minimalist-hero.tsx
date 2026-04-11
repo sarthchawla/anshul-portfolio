@@ -53,15 +53,15 @@ export const MinimalistHero = ({
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.18 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute top-[12%] z-0 h-[44vmin] w-[44vmin] rounded-full blur-3xl"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.18)" }}
+            className="absolute top-[12%] z-0 h-[44vmin] w-[44vmin] rounded-full bg-white blur-3xl"
           />
           {/* Accent circle */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute top-[10%] z-0 h-[42vmin] w-[42vmin] rounded-full bg-gradient-to-br from-white/90 via-white/80 to-white/70"
+            className="absolute top-[10%] z-0 h-[42vmin] w-[42vmin] rounded-full"
+            style={{ background: "radial-gradient(circle, #FFFFFF 0%, #FFFFFF 30%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)" }}
           />
           {/* Portrait */}
           <motion.img
@@ -142,15 +142,15 @@ export const MinimalistHero = ({
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.18 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute top-[8%] z-0 h-[70vw] w-[70vw] rounded-full blur-3xl"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.18)" }}
+            className="absolute top-[8%] z-0 h-[70vw] w-[70vw] rounded-full bg-white blur-3xl"
           />
           {/* Accent circle */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute top-[5%] z-0 h-[65vw] w-[65vw] rounded-full bg-gradient-to-br from-white/90 via-white/80 to-white/70"
+            className="absolute top-[5%] z-0 h-[65vw] w-[65vw] rounded-full"
+            style={{ background: "radial-gradient(circle, #FFFFFF 0%, #FFFFFF 30%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)" }}
           />
           {/* Portrait image — large, filling top */}
           <motion.img
