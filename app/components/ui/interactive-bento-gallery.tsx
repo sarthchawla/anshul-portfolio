@@ -1,9 +1,10 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import VideoPlayer from './video-player';
 import { Z } from '@/lib/z-index';
+import { downloadMedia } from '@/lib/download';
 
 
 // MediaItemType defines the structure of a media item
@@ -286,6 +287,20 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     <X className='w-5 h-5 sm:w-4 sm:h-4' />
                 </motion.button>
 
+                {/* Download Button */}
+                <motion.button
+                    className="absolute top-3 left-3 sm:top-4 sm:left-4
+                              p-2.5 sm:p-2 rounded-full bg-black/50 text-white hover:bg-accent-400/80
+                              backdrop-blur-sm border border-white/10 hover:border-accent-400/40"
+                    style={{ zIndex: Z.MODAL_CONTROLS }}
+                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); downloadMedia(selectedItem.url, selectedItem.title); }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label={`Download ${selectedItem.title}`}
+                >
+                    <Download className='w-5 h-5 sm:w-4 sm:h-4' />
+                </motion.button>
+
                 {/* Navigation Arrows */}
                 <motion.button
                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2
@@ -474,6 +489,17 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                             {item.desc}
                                         </p>
                                     </div>
+                                    {/* Download button — top-left */}
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            downloadMedia(item.url, item.title);
+                                        }}
+                                        aria-label={`Download ${item.title}`}
+                                        className="absolute top-2 left-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/70 cursor-pointer hover:bg-accent-400/80 hover:text-white hover:border-accent-400/40 transition-all duration-200"
+                                    >
+                                        <Download size={16} strokeWidth={2} />
+                                    </button>
                                 </motion.div>
                             </motion.div>
                         ))}

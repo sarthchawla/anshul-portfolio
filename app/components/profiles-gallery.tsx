@@ -6,7 +6,7 @@ import SectionHeading from "./section-heading";
 import GalleryGrid from "./gallery-grid";
 import MediaCard from "./media-card";
 import LightboxWrapper from "./lightbox-wrapper";
-import { profilePhotos, PROFILE_PLACEHOLDER_URLS } from "@/data/profiles";
+import { profilePhotos } from "@/data/profiles";
 import { gdriveImage } from "@/lib/google-drive";
 
 const physicalStats = [
@@ -22,13 +22,7 @@ export default function ProfilesGallery() {
     index: 0,
   });
 
-  // TODO: Replace placeholder logic with gdriveImage() when real photos are uploaded
-  const imageUrls = profilePhotos.map((photo, index) => {
-    if (photo.id.startsWith("placeholder-")) {
-      return PROFILE_PLACEHOLDER_URLS[index] ?? PROFILE_PLACEHOLDER_URLS[0];
-    }
-    return gdriveImage(photo.id);
-  });
+  const imageUrls = profilePhotos.map((photo) => gdriveImage(photo.id));
 
   const slides = imageUrls.map((src) => ({ src }));
 
@@ -64,14 +58,15 @@ export default function ProfilesGallery() {
           </div>
         </motion.div>
 
-        <GalleryGrid columns={{ default: 3, 768: 2, 480: 1 }}>
+        <GalleryGrid columns={{ default: 4, 1024: 3, 768: 2, 480: 2 }}>
           {profilePhotos.map((photo, index) => (
-            <MediaCard
-              key={photo.id}
-              src={imageUrls[index]}
-              alt={photo.alt}
-              onClick={() => setLightbox({ open: true, index })}
-            />
+            <div key={photo.id} className="mb-4">
+              <MediaCard
+                src={imageUrls[index]}
+                alt={photo.alt}
+                onClick={() => setLightbox({ open: true, index })}
+              />
+            </div>
           ))}
         </GalleryGrid>
 

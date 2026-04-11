@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import VideoEmbed from "./video-embed";
-import { introVideo, INTRO_VIDEO_PLACEHOLDER_URL } from "@/data/intro-video";
+import { introVideo } from "@/data/intro-video";
 
 export default function IntroVideo() {
   return (
@@ -18,15 +18,7 @@ export default function IntroVideo() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          {/* TODO: Replace placeholder check with direct gdriveVideoEmbed() when real video is uploaded */}
-          {introVideo.fileId === "placeholder" ? (
-            <VideoEmbed
-              isPlaceholder={true}
-              placeholderUrl={INTRO_VIDEO_PLACEHOLDER_URL}
-            />
-          ) : (
-            <VideoEmbed fileId={introVideo.fileId} />
-          )}
+          <VideoEmbed fileId={introVideo.fileId} />
 
           {/* Decorative gradient overlays on left/right edges */}
           <div

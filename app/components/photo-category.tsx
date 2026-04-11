@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { PhotoShootCategory } from "@/data/types";
 import { gdriveImage } from "@/lib/google-drive";
-import { shuffle } from "@/lib/shuffle";
 import GalleryGrid from "./gallery-grid";
 import MediaCard from "./media-card";
 import LightboxWrapper from "./lightbox-wrapper";
@@ -13,16 +12,12 @@ interface PhotoCategoryProps {
 }
 
 export default function PhotoCategory({ category }: PhotoCategoryProps) {
-  const shuffledPhotos = useMemo(
-    () => shuffle(category.photos),
-    [category.slug]
-  );
-
   const [lightbox, setLightbox] = useState({ open: false, index: 0 });
 
-  const photoUrls = shuffledPhotos.map((photo) => gdriveImage(photo.id));
+  const photos = category.photos;
+  const photoUrls = photos.map((photo) => gdriveImage(photo.id));
 
-  const lightboxSlides = shuffledPhotos.map((photo, i) => ({
+  const lightboxSlides = photos.map((photo, i) => ({
     src: photoUrls[i],
     alt: photo.alt,
   }));
@@ -30,7 +25,7 @@ export default function PhotoCategory({ category }: PhotoCategoryProps) {
   return (
     <>
       <GalleryGrid columns={{ default: 5, 1024: 4, 768: 3, 480: 2 }}>
-        {shuffledPhotos.map((photo, i) => (
+        {photos.map((photo, i) => (
           <div key={photo.id} className="mb-4">
             <MediaCard
               src={photoUrls[i]}
