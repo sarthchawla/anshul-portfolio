@@ -2,7 +2,7 @@
   "name": "anshul-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio website for Anshul Chugh - Actress & Model",
+  "description": "Official portfolio of Anshul.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

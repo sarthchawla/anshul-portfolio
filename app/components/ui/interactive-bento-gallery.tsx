@@ -179,14 +179,18 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
         setSelectedItem(mediaItems[nextIndex]);
     };
 
-    // Close on Escape key
+    // Close on Escape key + lock body scroll
     useEffect(() => {
         if (!isOpen) return;
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
         };
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'hidden';
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = '';
+        };
     }, [isOpen, onClose]);
 
     if (!isOpen) return null;
@@ -203,8 +207,8 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     stiffness: 400,
                     damping: 30
                 }}
-                className="fixed inset-0 w-full min-h-screen sm:h-[90vh] md:h-[600px] backdrop-blur-lg
-                          rounded-none sm:rounded-lg md:rounded-xl overflow-hidden"
+                className="fixed inset-0 w-full h-full backdrop-blur-lg
+                          overflow-hidden"
                 style={{ zIndex: Z.MODAL_BACKDROP }}
                 onClick={onClose}
             >
@@ -215,11 +219,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                             <motion.div
                                 key={selectedItem.id}
                                 onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                                className={`relative rounded-lg overflow-hidden shadow-md max-h-[80vh] ${
-                                    selectedItem.aspectRatio === '9/16'
-                                        ? 'w-[280px] sm:w-[320px] md:w-[360px]'
-                                        : 'w-full max-w-[95%] sm:max-w-[85%] md:max-w-3xl'
-                                }`}
+                                className="relative flex flex-col items-center"
                                 initial={{ y: 20, scale: 0.97 }}
                                 animate={{
                                     y: 0,
@@ -239,7 +239,14 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                             >
                                 {selectedItem.type === 'video' && selectedItem.thumbnailUrl ? (
                                     // Google Drive videos: use iframe embed with aspect ratio
-                                    <div className="w-full" style={{ aspectRatio: selectedItem.aspectRatio || '16/9' }}>
+                                    <div
+                                        className={`rounded-lg overflow-hidden ${
+                                            selectedItem.aspectRatio === '9/16'
+                                                ? 'w-[320px] sm:w-[380px] md:w-[420px]'
+                                                : 'w-[90vw] max-w-5xl'
+                                        }`}
+                                        style={{ aspectRatio: selectedItem.aspectRatio || '16/9' }}
+                                    >
                                         <iframe
                                             src={selectedItem.url}
                                             className="w-full h-full"
@@ -251,17 +258,33 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                     </div>
                                 ) : selectedItem.type === 'video' ? (
                                     // Direct mp4 videos: use VideoPlayer
-                                    <VideoPlayer src={selectedItem.url} className="w-full h-full" />
+                                    <div className="w-[90vw] max-w-5xl rounded-lg overflow-hidden">
+                                        <VideoPlayer src={selectedItem.url} className="w-full h-full" />
+                                    </div>
                                 ) : (
-                                    <img
-                                        src={selectedItem.url}
-                                        alt={selectedItem.title}
-                                        className="w-full h-full object-contain bg-black/20 cursor-pointer"
-                                        onClick={onClose}
-                                    />
+                                    <div
+                                        className="rounded-lg overflow-hidden"
+                                        style={{
+                                            aspectRatio: selectedItem.aspectRatio || undefined,
+                                            maxHeight: '75vh',
+                                            maxWidth: '90vw',
+                                            width: selectedItem.aspectRatio
+                                                ? `calc(75vh * ${(() => {
+                                                    const parts = (selectedItem.aspectRatio || '1/1').split('/');
+                                                    return Number(parts[0]) / Number(parts[1]);
+                                                })()})`
+                                                : undefined,
+                                        }}
+                                    >
+                                        <img
+                                            src={selectedItem.url}
+                                            alt={selectedItem.title}
+                                            className="w-full h-full object-contain cursor-pointer"
+                                            onClick={onClose}
+                                        />
+                                    </div>
                                 )}
-                                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4
-                                              bg-gradient-to-t from-black/50 to-transparent pointer-events-none">
+                                <div className="mt-3 text-center pointer-events-none">
                                     <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold">
                                         {selectedItem.title}
                                     </h3>
@@ -302,28 +325,24 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 </motion.button>
 
                 {/* Navigation Arrows */}
-                <motion.button
+                <button
                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2
                               p-2 sm:p-3 rounded-full bg-white/10 text-white hover:bg-white/20
-                              backdrop-blur-sm"
+                              backdrop-blur-sm transition-colors duration-200 cursor-pointer"
                     style={{ zIndex: Z.MODAL_CONTROLS }}
                     onClick={(e: React.MouseEvent) => { e.stopPropagation(); goToPrev(); }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                 >
                     <ChevronLeft className="w-5 h-5" />
-                </motion.button>
-                <motion.button
+                </button>
+                <button
                     className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2
                               p-2 sm:p-3 rounded-full bg-white/10 text-white hover:bg-white/20
-                              backdrop-blur-sm"
+                              backdrop-blur-sm transition-colors duration-200 cursor-pointer"
                     style={{ zIndex: Z.MODAL_CONTROLS }}
                     onClick={(e: React.MouseEvent) => { e.stopPropagation(); goToNext(); }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                 >
                     <ChevronRight className="w-5 h-5" />
-                </motion.button>
+                </button>
 
             </motion.div>
 

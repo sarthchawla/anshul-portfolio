@@ -19,7 +19,7 @@ export default function Footer() {
       >
         {/* Name */}
         <p className="font-serif text-lg uppercase tracking-widest text-zinc-400">
-          Anshul Chugh
+          Anshul
         </p>
 
         {/* Contact */}
@@ -52,7 +52,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-xs text-zinc-600">
-          &copy; 2026 Anshul Chugh. All rights reserved.
+          &copy; 2026 Anshul. All rights reserved.
         </p>
       </motion.div>
     </footer>

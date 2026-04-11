@@ -15,9 +15,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Anshul Chugh | Actress & Model",
+  title: "Anshul | Actress & Model",
   description:
-    "Official portfolio of Anshul Chugh — actress and model showcasing her work in film, television, and fashion.",
+    "Official portfolio of Anshul.",
 };
 
 export default function RootLayout({

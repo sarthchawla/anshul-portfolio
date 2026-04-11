@@ -29,7 +29,7 @@ export default function Hero() {
     <section id="hero">
       <MinimalistHero
         imageSrc={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero-portrait-nobg.png`}
-        imageAlt="Anshul Chugh — Actress & Model"
+        imageAlt="Anshul — Actress & Model"
         overlayText="ANSHUL"
         contactLinks={CONTACT_LINKS}
       />

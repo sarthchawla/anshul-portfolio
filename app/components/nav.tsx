@@ -85,7 +85,7 @@ export default function Nav() {
           href="#hero"
           className="font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
         >
-          Anshul Chugh
+          Anshul
         </a>
 
         {/* ---- Desktop links (md+) ---- */}
