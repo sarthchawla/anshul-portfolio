@@ -220,6 +220,13 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                 key={selectedItem.id}
                                 onClick={(e: React.MouseEvent) => e.stopPropagation()}
                                 className="relative flex flex-col items-center"
+                                drag="x"
+                                dragConstraints={{ left: 0, right: 0 }}
+                                dragElastic={0.3}
+                                onDragEnd={(_e, info) => {
+                                    if (info.offset.x < -50) goToNext();
+                                    else if (info.offset.x > 50) goToPrev();
+                                }}
                                 initial={{ y: 20, scale: 0.97 }}
                                 animate={{
                                     y: 0,
@@ -324,25 +331,27 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     <Download className='w-5 h-5 sm:w-4 sm:h-4' />
                 </motion.button>
 
-                {/* Navigation Arrows */}
-                <button
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2
-                              p-2 sm:p-3 rounded-full bg-white/10 text-white hover:bg-white/20
-                              backdrop-blur-sm transition-colors duration-200 cursor-pointer"
+                {/* Navigation Arrow Zones — full-height strips that block touch from reaching the iframe */}
+                <div
+                    className="absolute left-0 top-0 bottom-0 w-14 sm:w-20 flex items-center justify-center"
                     style={{ zIndex: Z.MODAL_CONTROLS }}
-                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); goToPrev(); }}
+                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); e.preventDefault(); goToPrev(); }}
+                    onTouchStart={(e) => e.stopPropagation()}
                 >
-                    <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2
-                              p-2 sm:p-3 rounded-full bg-white/10 text-white hover:bg-white/20
-                              backdrop-blur-sm transition-colors duration-200 cursor-pointer"
+                    <div className="p-3 rounded-full bg-white/10 text-white backdrop-blur-sm">
+                        <ChevronLeft className="w-5 h-5" />
+                    </div>
+                </div>
+                <div
+                    className="absolute right-0 top-0 bottom-0 w-14 sm:w-20 flex items-center justify-center"
                     style={{ zIndex: Z.MODAL_CONTROLS }}
-                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); goToNext(); }}
+                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); e.preventDefault(); goToNext(); }}
+                    onTouchStart={(e) => e.stopPropagation()}
                 >
-                    <ChevronRight className="w-5 h-5" />
-                </button>
+                    <div className="p-3 rounded-full bg-white/10 text-white backdrop-blur-sm">
+                        <ChevronRight className="w-5 h-5" />
+                    </div>
+                </div>
 
             </motion.div>
 
