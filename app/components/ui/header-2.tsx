@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { Button, buttonVariants } from './button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from './menu-toggle-icon';
@@ -83,7 +84,7 @@ export function Header() {
                     href="#hero"
                     className="flex items-center gap-2 font-serif text-sm uppercase tracking-widest text-white transition-colors hover:text-accent-400"
                 >
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`} alt="" className="h-5 w-5 invert" />
+                    <Image src="/logo.png" alt="" width={20} height={20} priority className="invert" />
                     ANSHUL
                 </a>
                 <div className="hidden items-center gap-1 md:flex">

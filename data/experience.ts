@@ -156,7 +156,7 @@ export const experiences: YearExperience[] = [
       {
         name: "Urban Redevelopment Authority: Honouring the past, forging the future | Draft Master Plan 2025",
         slug: "ura-honouring-past",
-        thumbnail: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ura-thumb.png`,
+        thumbnail: `/images/ura-thumb.png`,
         media: [
           {
             id: "1kLu6Z0ymt2LoyCF68wQQppBfcxEaxvmL",

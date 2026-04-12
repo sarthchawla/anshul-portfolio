@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -64,19 +65,21 @@ export const MinimalistHero = ({
             style={{ background: "radial-gradient(circle, #FFFFFF 0%, #FFFFFF 30%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)" }}
           />
           {/* Portrait */}
-          <motion.img
-            src={imageSrc}
-            alt={imageAlt}
-            className="relative z-10 h-[75vh] w-auto max-w-[40vw] object-cover object-top"
+          <motion.div
+            className="relative z-10 h-[75vh] w-auto max-w-[40vw]"
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = "https://placehold.co/400x600/0EA5E9/ffffff?text=Image+Not+Found";
-            }}
-          />
+          >
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              sizes="(max-width: 768px) 85vw, 40vw"
+              className="object-cover object-top"
+            />
+          </motion.div>
         </div>
 
         {/* Spacer for top */}
@@ -153,19 +156,21 @@ export const MinimalistHero = ({
             style={{ background: "radial-gradient(circle, #FFFFFF 0%, #FFFFFF 30%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)" }}
           />
           {/* Portrait image — large, filling top */}
-          <motion.img
-            src={imageSrc}
-            alt={imageAlt}
-            className="relative z-10 mt-4 h-auto w-[85vw] max-w-none object-cover object-top"
+          <motion.div
+            className="relative z-10 mt-4 h-auto w-[85vw] max-w-none aspect-[3/4]"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = "https://placehold.co/400x600/0EA5E9/ffffff?text=Image+Not+Found";
-            }}
-          />
+          >
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              sizes="(max-width: 768px) 85vw, 40vw"
+              className="object-cover object-top"
+            />
+          </motion.div>
         </div>
 
         {/* Bottom: Name + contacts stacked */}

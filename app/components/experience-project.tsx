@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import type { Project } from "@/data/types";
-import { gdriveImage, gdriveThumbnail, gdriveVideoEmbed } from "@/lib/google-drive";
+import { gdriveImage, gdriveThumbnail, gdriveVideoEmbed, gdriveLoader } from "@/lib/google-drive";
+import { BLUR_DATA_URL } from "@/lib/blur-placeholder";
 import { experiencePlaceholderImages } from "@/data/experience";
 import VideoEmbed from "./video-embed";
 import MediaCard from "./media-card";
@@ -94,12 +96,18 @@ export default function ExperienceProject({
       >
         {/* Thumbnail preview */}
         {thumbnailSrc && (
-          <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border border-white/5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border border-white/5 relative">
+            <Image
               src={thumbnailSrc}
               alt={thumbnailAlt}
-              loading="lazy"
+              width={80}
+              height={80}
+              sizes="(min-width: 768px) 80px, 64px"
+              {...(thumbnailSrc.includes("lh3.googleusercontent.com")
+                ? { loader: gdriveLoader }
+                : {})}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
               className="w-full h-full object-cover"
             />
           </div>
