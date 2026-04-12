@@ -66,7 +66,7 @@ export const MinimalistHero = ({
           />
           {/* Portrait */}
           <motion.div
-            className="relative z-10 h-[75vh] w-auto max-w-[40vw]"
+            className="relative z-10 h-[75vh] aspect-[3/4] max-w-[40vw]"
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
