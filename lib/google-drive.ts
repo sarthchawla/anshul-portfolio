@@ -9,3 +9,7 @@ export const gdriveVideoEmbed = (id: string): string =>
 
 export const gdriveThumbnailById = (id: string): string =>
   `https://drive.google.com/thumbnail?id=${id}&sz=w800`;
+
+export function gdriveLoader({ src, width }: { src: string; width: number }): string {
+  return `${src}=w${width}`;
+}

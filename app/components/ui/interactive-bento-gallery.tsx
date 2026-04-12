@@ -2,9 +2,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import Image from "next/image";
 import VideoPlayer from './video-player';
 import { Z } from '@/lib/z-index';
 import { downloadMedia } from '@/lib/download';
+import { gdriveLoader } from "@/lib/google-drive";
+import { BLUR_DATA_URL } from "@/lib/blur-placeholder";
 
 
 // MediaItemType defines the structure of a media item
@@ -22,7 +25,7 @@ export interface MediaItemType {
     span: string;
 }
 // MediaItem component renders either a video or image based on item.type
-const MediaItem = ({ item, className, onClick }: { item: MediaItemType, className?: string, onClick?: () => void }) => {
+const MediaItem = ({ item, className, onClick, sizes = "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw" }: { item: MediaItemType, className?: string, onClick?: () => void, sizes?: string }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isInView, setIsInView] = useState(false);
     const [isBuffering, setIsBuffering] = useState(true);
@@ -99,12 +102,16 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
         if (item.thumbnailUrl) {
             return (
                 <div className={`${className} relative overflow-hidden`} onClick={onClick}>
-                    <img
+                    <Image
                         src={item.thumbnailUrl}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         loading="lazy"
-                        decoding="async"
+                        sizes={sizes}
+                        placeholder="blur"
+                        blurDataURL={BLUR_DATA_URL}
+                        {...(item.thumbnailUrl.includes("lh3.googleusercontent.com") ? { loader: gdriveLoader } : {})}
                     />
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
@@ -147,14 +154,19 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
     }
 
     return (
-        <img
-            src={item.url}
-            alt={item.title}
-            className={`${className} object-cover cursor-pointer`}
-            onClick={onClick}
-            loading="lazy"
-            decoding="async"
-        />
+        <div className={`${className} relative overflow-hidden`} onClick={onClick}>
+            <Image
+                src={item.url}
+                alt={item.title}
+                fill
+                className="object-cover cursor-pointer"
+                loading="lazy"
+                sizes={sizes}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+                {...(item.url.includes("lh3.googleusercontent.com") ? { loader: gdriveLoader } : {})}
+            />
+        </div>
     );
 };
 
@@ -397,7 +409,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                     transition: { type: "spring", stiffness: 400, damping: 25 }
                                 }}
                             >
-                                <MediaItem item={item} className="w-full h-full" onClick={() => setSelectedItem(item)} />
+                                <MediaItem item={item} className="w-full h-full" onClick={() => setSelectedItem(item)} sizes="40px" />
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/20" />
                                 {selectedItem.id === item.id && (
                                     <motion.div

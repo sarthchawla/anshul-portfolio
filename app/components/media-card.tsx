@@ -1,9 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { downloadMedia } from "@/lib/download";
+import { gdriveLoader } from "@/lib/google-drive";
+import { BLUR_DATA_URL } from "@/lib/blur-placeholder";
+
+const DEFAULT_SIZES =
+  "(max-width: 480px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw";
 
 interface MediaCardProps {
   src: string;
@@ -11,6 +17,7 @@ interface MediaCardProps {
   onClick?: () => void;
   delay?: number;
   className?: string;
+  sizes?: string;
 }
 
 export default function MediaCard({
@@ -19,6 +26,7 @@ export default function MediaCard({
   onClick,
   delay = 0,
   className,
+  sizes = DEFAULT_SIZES,
 }: MediaCardProps) {
   const [loaded, setLoaded] = useState(false);
 
@@ -36,13 +44,16 @@ export default function MediaCard({
         <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-zinc-800 via-zinc-700 to-zinc-800" />
       )}
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={src}
         alt={alt}
-        loading="lazy"
+        fill
+        sizes={sizes}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
+        {...(src.includes("lh3.googleusercontent.com") ? { loader: gdriveLoader } : {})}
         onLoad={() => setLoaded(true)}
-        className={`h-full w-full object-cover transition-all duration-500 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+        className={`object-cover transition-all duration-500 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
       />
 
       {/* Hover overlay */}
