@@ -2,8 +2,8 @@ import type { PhotoShootCategory } from "./types";
 
 export const photoShootCategories: PhotoShootCategory[] = [
   {
-    name: "Photoshoot",
-    slug: "photoshoot",
+    name: "Western",
+    slug: "western",
     photos: [
       { id: "1BhuUT1HHNitxMqWFzDFUBnZXjQrosRBx", type: "image", alt: "Photoshoot - IMG_0367" },
       { id: "1mu2GgtTJESGGFosYqKazA4Uaglz-37Ak", type: "image", alt: "Photoshoot - IMG_0380" },
@@ -22,8 +22,8 @@ export const photoShootCategories: PhotoShootCategory[] = [
     ],
   },
   {
-    name: "Indian Ethnicwear",
-    slug: "indian-ethnicwear",
+    name: "Ethnic",
+    slug: "ethnic",
     photos: [
       { id: "1-jsT4J0ty-3G1TadNYh5KCsze17gIXqS", type: "image", alt: "Indian Ethnicwear - IMG_6922" },
       { id: "1-J87v9IFc1-3_KfhcUzZ1ATjrmHF_Q62", type: "image", alt: "Indian Ethnicwear - IMG_6925" },
