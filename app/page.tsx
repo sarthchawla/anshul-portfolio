@@ -23,8 +23,8 @@ export default function Home() {
       <div className="relative" style={{ zIndex: Z.PAGE_CONTENT }}>
         <Header />
         <Hero />
-        <ProfilesGallery />
         <IntroVideo />
+        <ProfilesGallery />
         <ExperienceSection />
         <PhotoShoots />
         <ContactSection />
