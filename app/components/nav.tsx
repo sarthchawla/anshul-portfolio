@@ -10,8 +10,8 @@ import { Z } from "@/lib/z-index";
 /* ------------------------------------------------------------------ */
 
 const NAV_LINKS = [
-  { label: "Profiles", href: "#profiles" },
   { label: "Introduction", href: "#intro" },
+  { label: "Profiles", href: "#profiles" },
   { label: "Experience", href: "#experience" },
   { label: "Photo Shoots", href: "#photoshoots" },
   { label: "Contact", href: "#contact" },
